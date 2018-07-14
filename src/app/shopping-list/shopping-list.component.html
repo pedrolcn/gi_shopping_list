@@ -1,0 +1,8 @@
+<div>
+  <app-shopping-item *ngFor="let item of itemList"
+    [item]="item"
+  >
+  </app-shopping-item>
+
+  <button (click)="add()">Adicionar</button>
+</div>
