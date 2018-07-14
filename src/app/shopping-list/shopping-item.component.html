@@ -1,4 +1,5 @@
 <div [class.checked]="item.checked === true">
   <input type='checkbox' [(ngModel)]="item.checked">
   <input type='text' [(ngModel)]="item.title" placeholder="Novo item" [disabled]="item.checked === true">
+  <button (click)="removeItem()">remover</button>
 </div>

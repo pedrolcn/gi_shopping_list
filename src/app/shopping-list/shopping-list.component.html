@@ -1,8 +1,7 @@
-<div class='container'>
-  <app-shopping-item *ngFor="let item of itemList"
-    [item]="item"
-  >
-  </app-shopping-item>
+<app-shopping-item *ngFor="let item of itemList"
+  [item]="item"
+  (removeItemEvent)="onItemRemove($event)"
+>
+</app-shopping-item>
 
-  <button (click)="add()">Adicionar</button>
-</div>
+<button (click)="add()">Adicionar</button>

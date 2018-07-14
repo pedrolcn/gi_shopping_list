@@ -1,12 +1,13 @@
 import { Item } from './../models/item';
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['../../assets/shopping-list.component.css']
 })
-export class ShoppingListComponent implements OnInit, AfterViewChecked {
+export class ShoppingListComponent implements OnInit {
   itemList: Item[] = [new Item({ title: 'Test Item' })];
 
   constructor() { }
@@ -14,12 +15,11 @@ export class ShoppingListComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
   }
 
-  ngAfterViewChecked() {
-    const lastItem = <HTMLElement>document.querySelector('app-shopping-item:last-of-type input[type="text"]');
-    lastItem.focus();
+  add(): void {
+    this.itemList.push( new Item() );
   }
 
-  add(): void {
-    this.itemList.push( new Item({title: 'Novo item...' }) );
+  onItemRemove(itemId: string) {
+    this.itemList = this.itemList.filter(value => value.id !== itemId);
   }
 }
