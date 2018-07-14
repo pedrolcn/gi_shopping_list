@@ -1,5 +1,7 @@
 <div [class.checked]="item.checked === true">
-  <input type='checkbox' [(ngModel)]="item.checked">
-  <input type='text' [(ngModel)]="item.title" placeholder="Novo item" [disabled]="item.checked === true">
-  <button (click)="removeItem()">remover</button>
+  <span class='form-group'>
+    <input type='checkbox' [(ngModel)]="item.checked">
+    <input type='text' class='form-control' [(ngModel)]="item.title" placeholder="Novo item" [disabled]="item.checked === true">
+  </span>  
+  <button class='btn btn-danger' (click)="removeItem()">remover</button>
 </div>

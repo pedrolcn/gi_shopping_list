@@ -1,7 +1,14 @@
-<app-shopping-item *ngFor="let item of itemList"
-  [item]="item"
-  (removeItemEvent)="onItemRemove($event)"
->
-</app-shopping-item>
 
-<button (click)="add()">Adicionar</button>
+<div *ngIf="itemList.length !== 0">
+  <app-shopping-item *ngFor="let item of itemList"
+    [item]="item"
+    (removeItemEvent)="onItemRemove($event)"
+  >
+  </app-shopping-item>
+</div>
+
+<h3 *ngIf="itemList.length === 0">
+  Sua lista esta vazia
+</h3>
+
+<button class='btn btn-primary' (click)="add()">Adicionar</button>
