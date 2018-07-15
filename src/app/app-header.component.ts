@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as firebase from 'firebase';
 
 @Component({
@@ -8,11 +8,17 @@ import * as firebase from 'firebase';
 })
 export class HeaderComponent implements OnInit {
   @Input()
-  authenticated: boolean;
+  public authenticated: boolean;
+
+  @Output()
+  public logoutSignal: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  public logout() {
+    this.logoutSignal.emit(true);
+  }
 }

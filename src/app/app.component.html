@@ -1,4 +1,7 @@
-<app-header [authenticated]="auth.authenticated"></app-header>
+<app-header
+  [authenticated]="auth.authenticated"
+  (logoutSignal)="auth.signOut()">
+</app-header>
 <div class='container'>
   <h1>{{title}}</h1>
   <router-outlet></router-outlet>
