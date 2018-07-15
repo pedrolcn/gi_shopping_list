@@ -1,4 +1,4 @@
-import { Item } from './../models/item';
+import { Item } from '../models/item';
 import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 
 @Component({

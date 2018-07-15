@@ -1,3 +1,4 @@
+import { RoutingModule } from './routes/routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +13,7 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     BrowserModule,
     NgbModule.forRoot(),
     ShoppingListModule,
+    RoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
