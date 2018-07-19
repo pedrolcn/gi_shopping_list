@@ -28,7 +28,8 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  signOut() {
-    this.afAuth.auth.signOut();
+  async signOut() {
+    await this.afAuth.auth.signOut();
+    this.router.navigate(['/']);
   }
 }
