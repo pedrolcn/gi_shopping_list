@@ -1,5 +1,5 @@
 <app-header
-  [authenticated]="auth.authenticated"
+  [authenticated]="auth.authenticated | async"
   (logoutSignal)="auth.signOut()">
 </app-header>
 <div class='container'>

@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -8,16 +10,12 @@ import * as firebase from 'firebase/app';
   providedIn: 'root'
 })
 export class AuthService {
-  public authenticated: boolean;
-  public uid: string;
+  public authenticated: Observable<boolean>;
+  public uid: Observable<string>;
 
   constructor(private afAuth: AngularFireAuth, private router: Router) {
-    afAuth.authState.subscribe(user => {
-      this.authenticated = !!user;
-      if (user) {
-        this.uid = user.uid;
-      }
-    });
+    this.authenticated = afAuth.authState.pipe(map(user => !!user));
+    this.uid = afAuth.authState.pipe(map(user => user.uid));
   }
 
   signInWithEmail(email, password) {
