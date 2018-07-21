@@ -41,4 +41,4 @@ Thumbs.db
 # Configs
 
 /config
-src/environments
+src/environments/firebase.ts
