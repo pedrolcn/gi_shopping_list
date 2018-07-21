@@ -15,11 +15,13 @@ import { AuthModule } from './auth/auth.module';
 import { HeaderComponent } from './app-header.component';
 
 import config from '../../config';
+import { AppFooterComponent } from './app-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    AppFooterComponent,
   ],
   imports: [
     BrowserModule,
