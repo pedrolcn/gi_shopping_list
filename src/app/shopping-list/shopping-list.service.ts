@@ -1,6 +1,6 @@
 import { take, map } from 'rxjs/operators';
-import { Item } from './../models/item';
-import { AuthService } from './../auth/auth.service';
+import { Item } from '../models/item';
+import { AuthService } from '../auth/auth.service';
 import { AngularFireDatabase, AngularFireList, AngularFireObject  } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

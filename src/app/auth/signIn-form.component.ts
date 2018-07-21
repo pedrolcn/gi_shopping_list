@@ -8,17 +8,17 @@ export interface UserCredentials {
 }
 
 @Component({
-  selector: 'app-auth-form',
-  templateUrl: './auth-form.component.html',
+  selector: 'app-sign-in-form',
+  templateUrl: './signIn-form.component.html',
   styleUrls: ['../../assets/auth-form.component.css']
 })
-export class AuthFormComponent implements OnInit {
+export class SignInFormComponent implements OnInit {
   public user = {
     email: '',
     password: '',
   };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, public router: Router) { }
 
   ngOnInit() {
   }

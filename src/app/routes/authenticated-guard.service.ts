@@ -1,7 +1,7 @@
 import { tap, take } from 'rxjs/operators';
 
 import { Router, CanActivate } from '@angular/router';
-import { AuthService } from './../auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
