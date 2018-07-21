@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment.prod';
 import { FormsModule } from '@angular/forms';
 import { RoutingModule } from './routes/routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,6 @@ import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { HeaderComponent } from './app-header.component';
 
-import config from '../../config';
 import { AppFooterComponent } from './app-footer.component';
 
 @NgModule({
@@ -28,7 +28,7 @@ import { AppFooterComponent } from './app-footer.component';
     NgbModule.forRoot(),
     ShoppingListModule,
     RoutingModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AuthModule,
