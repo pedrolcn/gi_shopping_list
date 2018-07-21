@@ -9,7 +9,6 @@ import { ShoppingListService } from './shopping-list.service';
   styleUrls: ['../../assets/shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-  itemList: Item[] = [new Item({ title: 'Test Item' })];
 
   constructor(public slService: ShoppingListService) {}
 

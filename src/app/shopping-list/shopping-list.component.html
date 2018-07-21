@@ -1,5 +1,5 @@
 
-<div *ngIf="itemList.length !== 0">
+<div>
   <app-shopping-item *ngFor="let item of slService.taskList | async"
     [item]="item"
     (removeItemEvent)="onItemRemove($event)"
@@ -8,8 +8,8 @@
   </app-shopping-item>
 </div>
 
-<h3 *ngIf="itemList.length === 0">
-  Sua lista esta vazia
-</h3>
+<div class='loading-container'*ngIf="!(slService.taskList | async)">
+  <img src='assets/loading.svg'>
+</div>
 
 <button class='btn btn-outline-light' (click)="add()">Adicionar</button>
