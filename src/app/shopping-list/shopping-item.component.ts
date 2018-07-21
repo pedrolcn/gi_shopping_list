@@ -36,4 +36,8 @@ export class ShoppingItemComponent implements OnInit, AfterViewInit {
   public updateItem(): void {
     this.updateItemEvent.emit(this.item);
   }
+
+  public toggleChecked() {
+    this.item.checked = !this.item.checked;
+  }
 }

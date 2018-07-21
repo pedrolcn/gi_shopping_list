@@ -3,7 +3,7 @@
   (logoutSignal)="auth.signOut()">
 </app-header>
 <div class='container'>
-  <h1 *ngIf='!auth.authenticated | async'>{{title}}</h1>
+  <h1 *ngIf='!(auth.authenticated | async)'>{{title}}</h1>
   <h1 *ngIf='auth.authenticated | async'>Ola {{(auth.user | async).displayName}}, esta é sua lista de compras</h1>
   <router-outlet></router-outlet>
 </div>

@@ -1,7 +1,7 @@
 <div [class.checked]="item.checked === true">
   <span class='form-group'>
-    <input type='checkbox' [(ngModel)]="item.checked" (change)="updateItem()">
-    <input 
+      <span class='btn-check' [class.checked]="item.checked" (click)='toggleChecked()'><i class='fa fa-check'></i></span>
+      <input 
       type='text'
       class='form-control'
       [(ngModel)]="item.title"
@@ -9,5 +9,5 @@
       placeholder="Novo item"
       [disabled]="item.checked === true">
   </span>  
-  <button class='btn btn-danger' (click)="removeItem()">remover</button>
+  <button class='btn btn-outline-danger btn-remove' (click)="removeItem()"><i class='fa fa-trash-o'></i></button>
 </div>

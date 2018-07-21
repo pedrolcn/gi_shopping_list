@@ -5,7 +5,7 @@ import { AuthService } from './auth.service';
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './signUp-form.component.html',
-  styleUrls: ['./signUp-form.component.css']
+  styleUrls: ['../../assets/signUp-form.component.css']
 })
 export class SignUpFormComponent implements OnInit {
   public user = {
@@ -14,6 +14,8 @@ export class SignUpFormComponent implements OnInit {
     password: '',
   };
 
+  public loading = false;
+
   constructor(private authService: AuthService, public router: Router) { }
 
   ngOnInit() {
@@ -21,17 +23,22 @@ export class SignUpFormComponent implements OnInit {
 
   public async signInWithEmail() {
     try {
+      this.loading = true;
       const res = await this.authService.signInWithEmail(this.user.email, this.user.password);
       console.log(res);
       this.router.navigate(['tasks']);
 
     } catch (e) {
+      this.loading = false;
       throw e;
     }
+
+    this.loading = false;
   }
 
   public async createUserAndSignIn() {
     try {
+      this.loading = true;
       const response = await this.authService.createUser(this.user.email, this.user.password);
 
       if (response) {
@@ -41,8 +48,11 @@ export class SignUpFormComponent implements OnInit {
       if (e.code === 'auth/email-already-in-use') {
         this.signInWithEmail();
       } else {
+        this.loading = false;
         throw e;
       }
     }
+
+    this.loading = false;
   }
 }

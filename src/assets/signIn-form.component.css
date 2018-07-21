@@ -1,0 +1,9 @@
+a {
+  display: block;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+a i {
+  font-size: 0.75rem;
+}

@@ -5,9 +5,26 @@ html, body {
 }
 
 body {
-  background-color: #343a3f;
+  background-color: #343a3f !important;
 }
 
 h1 {
+  color: #fff !important;
+  text-align: center;
+}
+
+.loading-indicator {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(170,170,170,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
   color: #fff;
 }
