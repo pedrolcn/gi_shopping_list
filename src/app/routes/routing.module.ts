@@ -1,3 +1,4 @@
+import { NotAuthenticatedGuardService } from './not-authenticated-guard.service';
 import { AuthenticatedGuardService } from './authenticated-guard.service';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,7 @@ import { ShoppingListComponent } from './../shopping-list/shopping-list.componen
 
 
 const routes: Routes = [
-  {path: '', component: AuthFormComponent },
+  {path: '', component: AuthFormComponent, canActivate: [NotAuthenticatedGuardService] },
   {path: 'tasks', component: ShoppingListComponent, canActivate: [AuthenticatedGuardService]} ,
 ];
 
