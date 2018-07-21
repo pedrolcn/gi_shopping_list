@@ -1,5 +1,6 @@
 import { Item } from '../models/item';
 import { Component, OnInit } from '@angular/core';
+import { ShoppingListService } from './shopping-list.service';
 
 
 @Component({
@@ -10,16 +11,20 @@ import { Component, OnInit } from '@angular/core';
 export class ShoppingListComponent implements OnInit {
   itemList: Item[] = [new Item({ title: 'Test Item' })];
 
-  constructor() { }
+  constructor(public slService: ShoppingListService) {}
 
   ngOnInit() {
   }
 
   add(): void {
-    this.itemList.push( new Item() );
+    this.slService.createTask();
   }
 
-  onItemRemove(itemId: string) {
-    this.itemList = this.itemList.filter(value => value.id !== itemId);
+  onItemRemove(item: Item) {
+    this.slService.removeTask(item);
+  }
+
+  onItemUpdate(item: Item) {
+    this.slService.updateTask(item);
   }
 }

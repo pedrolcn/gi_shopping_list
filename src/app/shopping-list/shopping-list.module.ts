@@ -1,3 +1,4 @@
+import { ShoppingListService } from './shopping-list.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShoppingListComponent } from './shopping-list.component';
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     ShoppingListComponent,
-  ]
+  ],
+  providers: [ShoppingListService]
 })
 export class ShoppingListModule { }

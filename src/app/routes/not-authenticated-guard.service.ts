@@ -1,4 +1,4 @@
-import { tap, take } from 'rxjs/operators';
+import { tap, take, map } from 'rxjs/operators';
 
 import { Router, CanActivate } from '@angular/router';
 import { AuthService } from './../auth/auth.service';
@@ -18,7 +18,8 @@ export class NotAuthenticatedGuardService implements CanActivate {
         if (authenticated) {
           this.router.navigate(['/tasks']);
         }
-      })
+      }),
+      map(authenticated => !authenticated)
     );
   }
 }

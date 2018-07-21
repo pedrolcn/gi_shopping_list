@@ -14,7 +14,10 @@ export class ShoppingItemComponent implements OnInit, AfterViewInit {
   public index: number;
 
   @Output()
-  public removeItemEvent: EventEmitter<string> = new EventEmitter();
+  public removeItemEvent: EventEmitter<Item> = new EventEmitter();
+
+  @Output()
+  public updateItemEvent: EventEmitter<Item> = new EventEmitter();
 
   constructor() { }
 
@@ -22,11 +25,15 @@ export class ShoppingItemComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const lastItem = <HTMLElement>document.querySelector('app-shopping-item:last-of-type input[type="text"]');
+    const lastItem = document.querySelector<HTMLElement>('app-shopping-item:last-of-type input[type="text"]');
     lastItem.focus();
   }
 
   public removeItem(): void {
-    this.removeItemEvent.emit(this.item.id);
+    this.removeItemEvent.emit(this.item);
+  }
+
+  public updateItem(): void {
+    this.updateItemEvent.emit(this.item);
   }
 }

@@ -1,8 +1,9 @@
 
 <div *ngIf="itemList.length !== 0">
-  <app-shopping-item *ngFor="let item of itemList"
+  <app-shopping-item *ngFor="let item of slService.taskList | async"
     [item]="item"
     (removeItemEvent)="onItemRemove($event)"
+    (updateItemEvent)="onItemUpdate($event)"
   >
   </app-shopping-item>
 </div>
