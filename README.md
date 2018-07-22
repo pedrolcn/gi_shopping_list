@@ -1,27 +1,89 @@
 # ShoppingList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+Desafio parte do processo seletivo Iporanga/ Gorila Invest
 
-## Development server
+Desenvolvimento de um SPA de lista de compras utilizando Angular e Firebase.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Pré-requisitos
+-----------
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Utilize o package-manager da sua escolha, caso seja o npm, basta substituir os comandos
 
-## Build
+```shell
+$ yarn global add 
+```
+por
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```shell
+$ npm install -g
+```
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Instalar Angular CLI
 
-## Running end-to-end tests
+```shell
+$ yarn global add @angular/cli
+```
+#### Crie uma conta 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### Clonar o repositorio e instale as dependências
 
-## Further help
+```shell
+$ git clone git@github.com:pedrolcn/gi_shopping_list.git
+$ cd shopping-list
+$ yarn install
+```
+#### Configurando o Firebase
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Se não tiver uma conta ainda, crie uma gratuitamente em https://firebase.google.com
+- Crie um projeto a partir do [console](https://console.firebase.google.com)
+- Configure a autenticação para aceitar autenticação com email e senha
+
+- crie um arquivo `src/environments/firebase.ts` com o seguinte conteúdo substituindo as configurações da sua conta do firebase:
+```typescript
+const firebaseConfig = {
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: ''
+  storageBucket: '',
+};
+
+export default firebaseConfig;
+```
+
+## Rodando Localmente
+-----
+
+O aplicativo pode ser rodado localmente com o comando
+```shell
+$ ng serve
+```
+E em seguida abrir o browser no endereço `localhost:4200`
+
+## Fazendo o deploy no firebase
+-----
+
+Edite o arquivo `.firebaserc` na pasta raiz do seu projeto para conter as informações especificas da sua conta:
+
+```json
+{
+  "projects": {
+    "default": "your-project-id"
+  }
+}
+```
+
+#### Installe o  firebase-tools
+```shell
+$ yarn global add firebase-tools
+```
+
+#### Faça o Build e o deploy do app:
+```shell
+$ ng build --prod
+$ firebase login
+$ firebase use default
+$ firebase deploy
+```
