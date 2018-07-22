@@ -2,6 +2,7 @@
   border-bottom: solid 1px white;
   width: 100%;
   display: flex;
+  min-height: 42px;
 }
 
 .logout-link {

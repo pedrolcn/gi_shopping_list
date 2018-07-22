@@ -28,3 +28,7 @@ h1 {
 label {
   color: #fff;
 }
+
+.wrapper {
+  min-height: calc(100vh - 169px);
+}
