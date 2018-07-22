@@ -9,7 +9,6 @@ footer {
 .footer {
   border-top: solid 1px white;
   padding: 15px 10px;
-  display: flex;
 }
 
 .footer-info {
