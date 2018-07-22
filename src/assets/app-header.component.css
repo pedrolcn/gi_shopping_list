@@ -1,5 +1,7 @@
-.navbar-collapse {
+.navbar-content {
   border-bottom: solid 1px white;
+  width: 100%;
+  display: flex;
 }
 
 .logout-link {
