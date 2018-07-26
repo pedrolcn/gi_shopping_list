@@ -62,6 +62,25 @@ $ ng serve
 ```
 E em seguida abrir o browser no endereço `localhost:4200`
 
+## Rodando com Docker
+-----
+
+Se o docker ainda não tiver sido instalado siga as instruções de instalação do site https://docs.docker.com/install/ 
+
+Uma vez o docker instalado faça o build da imagem com o comando
+
+```shell
+  $ docker build . -t gi-shopping-list
+```
+
+Em seguida rode o container com o comando
+
+```shell
+  $ docker run -it -p 4200:4200 gi-shopping-list
+```
+O app deve então estar acessivel em http://localhost:4200 
+
+
 ## Fazendo o deploy no firebase
 -----
 
